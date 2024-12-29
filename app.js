@@ -6,6 +6,7 @@ const sqlite3 = require('sqlite3')
 
 const app = express();
 const bcrypt = require('bcrypt')
+app.use()
 
 const dbPath = path.join(__dirname, 'userData.db')
 
@@ -27,3 +28,13 @@ const initializeDBAndServer = async () => {
 }
 
 initializeDBAndServer();
+
+//API 1
+app.post('/register/', async (req,res) => {
+    try{
+        const {
+            username,name,password,gender,location
+        } = req.body
+
+    }
+})
