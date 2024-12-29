@@ -1,0 +1,11 @@
+POST https://vamshincue4njscpfvwof.drops.nxtwave.tech/register/
+
+Content-Type : application/json
+
+{
+  "username": "vamshi_n5",
+  "name": "BommishettyVamshi",
+  "password": "vamshi@123",
+  "gender": "male",
+  "location": "Detroit"
+}
