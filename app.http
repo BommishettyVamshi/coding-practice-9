@@ -3,9 +3,19 @@ POST https://vamshincue4njscpfvwof.drops.nxtwave.tech/register/
 Content-Type : application/json
 
 {
-  "username": "vamshi_n5",
-  "name": "BommishettyVamshi",
-  "password": "vamshi@123",
+  "username": "raju7766",
+  "name": "RajuBoyapati",
+  "password": "raju@1333",
   "gender": "male",
   "location": "Detroit"
+}
+###
+
+POST https://vamshincue4njscpfvwof.drops.nxtwave.tech/login/
+
+Content-Type : application/json
+
+{
+  "username": "adam_richard",
+  "password": "richard_567"
 }
