@@ -36,8 +36,7 @@ app.post('/register/', async (req, res) => {
   try {
     const {username, name, password, gender, location} = req.body
 
-    const hashedPassword = await bcrypt.hash(password, 10)
-
+  
     const selectQuery = `select * from user where username = '${username}';`
     const dbUser = await db.get(selectQuery)
 
