@@ -3,9 +3,9 @@ POST https://vamshincue4njscpfvwof.drops.nxtwave.tech/register/
 Content-Type : application/json
 
 {
-  "username": "raju7766",
-  "name": "RajuBoyapati",
-  "password": "raju@1333",
+  "username": "raju7",
+  "name": "RajuBontha",
+  "password": "raju@1432",
   "gender": "male",
   "location": "Detroit"
 }
@@ -18,4 +18,15 @@ Content-Type : application/json
 {
   "username": "adam_richard",
   "password": "richard_567"
+}
+###
+
+PUT https://vamshincue4njscpfvwof.drops.nxtwave.tech/change-password/
+
+Content-Type : application/json
+
+{
+  "username": "adam_richard",
+  "oldPassword": "richard_567",
+  "newPassword": "richard@123"
 }

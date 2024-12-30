@@ -51,7 +51,7 @@ app.post('/register/', async (req, res) => {
           values ('${username}','${name}','${hashedPassword}','${gender}','${location}');
         `
         const dbUserId = await db.run(createQuery)
-        res.status(400).send(`User created successfully`)
+        res.status(200).send('User created successfully')
         console.log(`User is created with id : ${dbUserId.lastID}`)
       }
     }
@@ -82,3 +82,34 @@ app.post('/login/', async (req, res) => {
     console.log(`Request Error: ${e.message}`)
   }
 })
+
+//API 3
+app.put('/change-password/', async (req, res) => {
+  try {
+    const {username, oldPassword, newPassword} = req.body
+    const selectQuery = `select * from user where username = '${username}';`
+    const dbUser = await db.get(selectQuery)
+
+    const isOldPasswordMatched = await bcrypt.compare(
+      oldPassword,
+      dbUser.password,
+    )
+
+    if (!isOldPasswordMatched) {
+      res.status(400).send('Invalid current password')
+    } else {
+      if (newPassword.length < 5) {
+        res.status(400).send('Password is too short')
+      } else {
+        const hashedNewPassword = await bcrypt.hash(newPassword, 10)
+        const updateQuery = `update user set password = '${hashedNewPassword}' where username = '${username}';`
+        await db.run(updateQuery)
+        res.status(200).send('Password updated')
+      }
+    }
+  } catch (e) {
+    console.log(`Request Error: ${e.message}`)
+  }
+})
+
+module.exports = app
